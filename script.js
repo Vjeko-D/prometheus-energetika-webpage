@@ -75,14 +75,9 @@ class PrometheusApp {
         this.createEnergyParticles();
         this.animateCounters();
         this.setupScrollAnimations();
-        this.trackPageHits();
     }
 
     init() {
-        // Initialize page hits counter
-        this.pageHits = this.getPageHits();
-        this.updatePageHits();
-
         // Initialize mobile menu
         this.mobileMenuOpen = false;
 
@@ -157,17 +152,6 @@ class PrometheusApp {
             card.addEventListener('mouseleave', () => this.animateServiceCard(card, false));
         });
 
-        // Scroll indicator click
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        if (scrollIndicator) {
-            scrollIndicator.addEventListener('click', () => {
-                const servicesSection = document.getElementById('services');
-                if (servicesSection) {
-                    this.smoothScrollTo(servicesSection);
-                }
-            });
-        }
-
         // Language switcher dropdown
         document.querySelectorAll('.lang-option').forEach(option => {
             option.addEventListener('click', (e) => {
@@ -178,34 +162,32 @@ class PrometheusApp {
     }
 
     createEnergyParticles() {
-        const particlesContainer = document.getElementById('particles');
-        if (!particlesContainer) return;
+        const particlesContainers = document.querySelectorAll('.energy-particles');
+        if (!particlesContainers.length) return;
 
-        const particleCount = 50;
+        particlesContainers.forEach((particlesContainer) => {
+            const particleCount = 50;
 
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
 
-            // Random positioning
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
 
-            // Random animation delay
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
 
-            // Random size
-            const size = Math.random() * 4 + 2;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
 
-            // Random color variation
-            const colors = ['#00d4aa', '#0984e3', '#fdcb6e', '#e17055'];
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                const colors = ['#00d4aa', '#0984e3', '#fdcb6e', '#e17055'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-            particlesContainer.appendChild(particle);
-        }
+                particlesContainer.appendChild(particle);
+            }
+        });
     }
 
     animateCounters() {
@@ -468,28 +450,6 @@ class PrometheusApp {
         setTimeout(() => { option.style.transform = ''; }, 150);
     }
 
-    getPageHits() {
-        const hits = localStorage.getItem('prometheus_page_hits');
-        return hits ? parseInt(hits) : 0;
-    }
-
-    updatePageHits() {
-        this.pageHits++;
-        localStorage.setItem('prometheus_page_hits', this.pageHits.toString());
-
-        const hitsElement = document.getElementById('pageHits');
-        if (hitsElement) {
-            this.animateCounter(hitsElement);
-        }
-    }
-
-    trackPageHits() {
-        // Update page hits counter
-        const hitsElement = document.getElementById('pageHits');
-        if (hitsElement) {
-            hitsElement.dataset.target = this.pageHits;
-        }
-    }
 }
 
 // Utility functions
