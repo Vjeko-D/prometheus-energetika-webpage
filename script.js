@@ -312,8 +312,14 @@ class PrometheusApp {
         const navbar = document.getElementById('navbar');
         if (!navbar) return;
         const currentScrollY = window.scrollY;
-        // Show when near top, or mouse in top zone, or user is scrolling up
-        const show = currentScrollY <= 200 || this.mouseInNavbarZone || this.scrollingUp;
+
+        const navbarInteractive = navbar.matches(':hover') ||
+            navbar.matches(':focus-within') ||
+            !!document.querySelector('.lang-dropdown:hover') ||
+            !!document.querySelector('.lang-menu:hover');
+
+        // Show when near top, trigger zone is active, user is scrolling up, or navbar/dropdown is being interacted with
+        const show = currentScrollY <= 200 || this.mouseInNavbarZone || this.scrollingUp || navbarInteractive;
         navbar.style.transform = show ? 'translateY(0)' : 'translateY(-100%)';
     }
 
