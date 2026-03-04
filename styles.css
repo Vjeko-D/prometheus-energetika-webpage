@@ -1123,17 +1123,20 @@ h6 {
 
     .hero-content {
         display: flex;
-        text-align: left;
+        text-align: center;
         gap: 0;
         margin: 0 auto;
         padding: 0 20px;
+        justify-content: center;
     }
 
     .hero-content .hero-text {
-        flex: 0 0 50%;
-        width: 50%;
+        flex: 0 0 100%;
+        width: 100%;
         min-width: 0;
-        padding-right: 1rem;
+        max-width: 52rem;
+        padding-right: 0;
+        text-align: center;
     }
 
     .hero-content .hero-visual {
