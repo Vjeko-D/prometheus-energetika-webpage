@@ -25,9 +25,9 @@
             <div class="nav-left">
                 <div class="nav-logo">
                     <div class="logo-icon">
-                        <img src="assets/logo.png" alt="Prometheus Energetika Logo">
+                        <img src="assets/logo.svg" alt="Prometheus Energetika Logo" class="nav-logo-main">
+                        <img src="assets/favicon.svg" alt="" class="nav-logo-favicon" aria-hidden="true">
                     </div>
-                    <span class="logo-text">Prometheus Energetika</span>
                 </div>
             </div>
             <div class="nav-right">
@@ -65,45 +65,42 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="title-line" data-i18n="hero.title.1">Budućnost</span>
-                    <span class="title-line highlight" data-i18n="hero.title.2">energije</span>
-                    <span class="title-line" data-i18n="hero.title.3">je zelena</span>
+                    <span class="title-line" data-i18n="hero.title.1">Oblikovanje budućnosti</span>
+                    <span class="title-line highlight" data-i18n="hero.title.2">održivih energetskih</span>
+                    <span class="title-line" data-i18n="hero.title.3">sustava</span>
                 </h1>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('services')">
+                    <button class="btn btn-primary" onclick="scrollToSection('services-heading')">
                         <i class="fas fa-arrow-right"></i>
                         <span data-i18n="hero.button.services">Naše usluge</span>
                     </button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact-heading')">
                         <i class="fas fa-phone"></i>
                         <span data-i18n="hero.button.contact">Kontaktirajte nas</span>
                     </button>
                 </div>
             </div>
             <div class="hero-visual">
-            </div>
-        </div>
-        </div>
-
-            <div class="energy-circle" aria-hidden="true">
-                <div class="energy-core">
-                    <img src="assets/renergy.svg" alt="Renewable Energy" class="renergy-icon">
+                <div class="energy-core" aria-hidden="true">
+                    <img src="assets/renergy.svg" alt="" class="renergy-icon">
                 </div>
-                <div class="energy-ring ring-1"></div>
-                <div class="energy-ring ring-2"></div>
-                <div class="energy-ring ring-3"></div>
             </div>
+        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="energy-particles" aria-hidden="true"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="services-illustration" aria-hidden="true">
+                <picture>
+                    <source media="(min-width: 1024px)" srcset="assets/energy-illustration-high-res.png">
+                    <img src="assets/energy_illustration.png" alt="" class="services-illustration-img" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <div class="section-header" id="services-heading">
                 <h2 class="section-title" data-i18n="services.title">Naše djelatnosti</h2>
-                <p class="section-subtitle" data-i18n="services.subtitle">
-                    Specijalizirani smo za sve aspekte moderne energetike i održivog razvoja
-                </p>
+                <p class="section-subtitle" data-i18n="services.subtitle"></p>
             </div>
             <div class="services-grid">
                 <div class="service-card" data-service="energy">
@@ -149,6 +146,14 @@
                     <h3 class="service-title" data-i18n="services.markets">Energetska tržišta</h3>
                 </div>
             </div>
+            <div class="services-insight" aria-label="Energy transition overview">
+                <h3 class="mission-title" data-i18n="services.mission.title">Misija</h3>
+                <p data-i18n="services.mission.p1">Globalni prijelaz na dekarboniziranu energiju ubrzava se kako troškovi obnovljivih izvora padaju, a tržišta fosilnih goriva ostaju nestabilna. Energija vjetra i sunca obilna je, no njezina integracija u postojeće sustave zahtijeva pametniju infrastrukturu, snažno energetsko planiranje i predanost zaštiti okoliša.</p>
+                <p data-i18n="services.mission.p2">U tropskim regijama solarna energija uz baterije može pokriti većinu potražnje, dok je dalje od ekvatora zimi ključna energija vjetra. Danas elektroenergetske mreže mogu relativno lako integrirati oko 20% vjetra i 30% kombiniranog udjela vjetra i sunca, uz uvjet poboljšanja prijenosnih kapaciteta, upravljanja energijom i fleksibilnosti sustava. Veći udjeli zahtijevaju napredna energetska tržišta, upravljanje potrošnjom i povezivanje sektora električne energije, grijanja, hlađenja, prometa, vode i industrije.</p>
+                <p data-i18n="services.mission.p3">Ključan korak je povezivanje elektroenergetskog sustava s daljinskim grijanjem i hlađenjem, koji omogućuju veliko toplinsko skladištenje i vrlo fleksibilnu potražnju. Dizalice topline elektrificiraju kućanstva, ali trebaju upravljanje putem pametnih mreža kako bi sudjelovale u upravljanju potrošnjom. Elektrificirani promet, automobili, dostavna vozila i gradski autobusi, povećava energetsku učinkovitost te omogućuje fleksibilno punjenje i distribuirano skladištenje.</p>
+                <p data-i18n="services.mission.p4">Pametna elektrifikacija zgrada, mobilnosti i industrije može povećati udio obnovljivih izvora iznad 80%. Preostali sektori koje je teško dekarbonizirati, dugolinijski promet, visokotemperaturna industrija, sirovine i pričuvna proizvodnja, oslanjat će se na otpadnu biomasu, obnovljivi vodik, e-amonijak, e-metanol i druga sintetska goriva. CO₂ iz biomase omogućuje kružnu proizvodnju e-goriva i podupire razvoj gospodarstva temeljenog na metanolu.</p>
+                <p data-i18n="services.mission.p5">Promicanje energetske učinkovitosti, robusnog upravljanja energijom i okolišno odgovornog projektiranja sustava ključno je za postizanje potpuno održive i otporne energetske budućnosti.</p>
+            </div>
         </div>
     </section>
 
@@ -156,7 +161,7 @@
     <section id="contact" class="contact">
         <div class="energy-particles" aria-hidden="true"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" id="contact-heading">
                 <h2 class="section-title" data-i18n="contact.title">Kontaktirajte nas</h2>
             </div>
             <div class="contact-content">
@@ -200,8 +205,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <img src="assets/logo.png" alt="Prometheus Energetika Logo" class="footer-logo-img">
-                        <span>Prometheus Energetika</span>
+                        <img src="assets/logo.svg" alt="Prometheus Energetika Logo" class="footer-logo-img">
                     </div>
                     <p>&copy; 2026 <span data-i18n="footer.company">Prometheus Energetika d.o.o.</span> <span data-i18n="footer.rights">Sva prava pridržana.</span></p>
                 </div>

@@ -6,13 +6,13 @@ const TRANSLATIONS = {
         'nav.home': 'Početna',
         'nav.services': 'Usluge',
         'nav.contact': 'Kontakt',
-        'hero.title.1': 'Budućnost',
-        'hero.title.2': 'energije',
-        'hero.title.3': 'je zelena',
+        'hero.title.1': 'Oblikovanje budućnosti',
+        'hero.title.2': 'održivih energetskih',
+        'hero.title.3': 'sustava',
         'hero.button.services': 'Naše usluge',
         'hero.button.contact': 'Kontaktirajte nas',
         'services.title': 'Naše djelatnosti',
-        'services.subtitle': 'Specijalizirani smo za sve aspekte moderne energetike i održivog razvoja',
+        'services.subtitle': '',
         'services.energy': 'Energetika',
         'services.climate': 'Klimatske promjene',
         'services.environment': 'Zaštita okoliša',
@@ -20,6 +20,12 @@ const TRANSLATIONS = {
         'services.renewable': 'Obnovljivi izvori energije',
         'services.planning': 'Energetsko planiranje',
         'services.markets': 'Energetska tržišta',
+        'services.mission.title': 'Misija',
+        'services.mission.p1': 'Globalni prijelaz na dekarboniziranu energiju ubrzava se kako troškovi obnovljivih izvora padaju, a tržišta fosilnih goriva ostaju nestabilna. Energija vjetra i sunca obilna je, no njezina integracija u postojeće sustave zahtijeva pametniju infrastrukturu, snažno energetsko planiranje i predanost zaštiti okoliša.',
+        'services.mission.p2': 'U tropskim regijama solarna energija uz baterije može pokriti većinu potražnje, dok je dalje od ekvatora zimi ključna energija vjetra. Danas elektroenergetske mreže mogu relativno lako integrirati oko 20% vjetra i 30% kombiniranog udjela vjetra i sunca, uz uvjet poboljšanja prijenosnih kapaciteta, upravljanja energijom i fleksibilnosti sustava. Veći udjeli zahtijevaju napredna energetska tržišta, upravljanje potrošnjom i povezivanje sektora električne energije, grijanja, hlađenja, prometa, vode i industrije.',
+        'services.mission.p3': 'Ključan korak je povezivanje elektroenergetskog sustava s daljinskim grijanjem i hlađenjem, koji omogućuju veliko toplinsko skladištenje i vrlo fleksibilnu potražnju. Dizalice topline elektrificiraju kućanstva, ali trebaju upravljanje putem pametnih mreža kako bi sudjelovale u upravljanju potrošnjom. Elektrificirani promet, automobili, dostavna vozila i gradski autobusi, povećava energetsku učinkovitost te omogućuje fleksibilno punjenje i distribuirano skladištenje.',
+        'services.mission.p4': 'Pametna elektrifikacija zgrada, mobilnosti i industrije može povećati udio obnovljivih izvora iznad 80%. Preostali sektori koje je teško dekarbonizirati, dugolinijski promet, visokotemperaturna industrija, sirovine i pričuvna proizvodnja, oslanjat će se na otpadnu biomasu, obnovljivi vodik, e-amonijak, e-metanol i druga sintetska goriva. CO₂ iz biomase omogućuje kružnu proizvodnju e-goriva i podupire razvoj gospodarstva temeljenog na metanolu.',
+        'services.mission.p5': 'Promicanje energetske učinkovitosti, robusnog upravljanja energijom i okolišno odgovornog projektiranja sustava ključno je za postizanje potpuno održive i otporne energetske budućnosti.',
         'contact.title': 'Kontaktirajte nas',
         'contact.company': 'Prometheus Energetika d.o.o.',
         'contact.address': 'Tomićeva 7, Zagreb',
@@ -38,13 +44,13 @@ const TRANSLATIONS = {
         'nav.home': 'Home',
         'nav.services': 'Services',
         'nav.contact': 'Contact',
-        'hero.title.1': 'The future',
-        'hero.title.2': 'of energy',
-        'hero.title.3': 'is green',
+        'hero.title.1': 'Shaping the Future',
+        'hero.title.2': 'of Sustainable',
+        'hero.title.3': 'Energy Systems',
         'hero.button.services': 'Our services',
         'hero.button.contact': 'Contact us',
-        'services.title': 'Scope of work',
-        'services.subtitle': 'We specialize in all aspects of modern energy and sustainable development',
+        'services.title': 'What we do',
+        'services.subtitle': '',
         'services.energy': 'Energy management',
         'services.climate': 'Climate change',
         'services.environment': 'Environmental protection',
@@ -52,6 +58,12 @@ const TRANSLATIONS = {
         'services.renewable': 'Renewable energy sources',
         'services.planning': 'Energy planning',
         'services.markets': 'Energy markets',
+        'services.mission.title': 'Mission',
+        'services.mission.p1': 'The global shift to decarbonized energy is accelerating as renewable costs fall and fossil fuel markets remain volatile. Wind and solar energy are abundant, but integrating them into existing systems requires smarter infrastructure, strong energy planning, and a commitment to environmental protection.',
+        'services.mission.p2': 'In tropical regions, solar plus batteries can cover most demand, while farther from the Equator, winter wind power becomes essential. Today, grids can easily integrate about 20% wind and 30% combined wind–solar, provided transmission capacity, energy management, and system flexibility improve. Higher shares require advanced energy markets, demand response, and sector coupling across electricity, heating, cooling, transport, water, and industry.',
+        'services.mission.p3': 'A key step is linking power with district heating and cooling, which offer large thermal storage and highly flexible demand. Heat pumps electrify individual homes but need smart-grid control to participate in demand response. Electrified transport, cars, delivery fleets, and city buses, boosts energy efficiency and enables flexible charging and distributed storage.',
+        'services.mission.p4': 'Smart electrification across buildings, mobility, and industry can raise renewable penetration above 80%. The remaining hard-to-abate sectors, long-distance transport, high-temperature industry, feedstocks, and backup generation, will rely on waste biomass, renewable hydrogen, e-ammonia, e-methanol, and other synthetic fuels. Biomass-derived CO₂ enables circular production of e-fuels, supporting the emerging methanol economy.',
+        'services.mission.p5': 'Promoting energy efficiency, robust energy management, and environmentally responsible system design is essential to achieving a fully sustainable, resilient energy future.',
         'contact.title': 'Contact us',
         'contact.company': 'Prometheus Energetika d.o.o.',
         'contact.address': 'Tomićeva 7, Zagreb',
@@ -70,6 +82,7 @@ const TRANSLATIONS = {
 
 class PrometheusApp {
     constructor() {
+        this.scrollOffset = 100;
         this.init();
         this.setupEventListeners();
         this.createEnergyParticles();
@@ -80,6 +93,13 @@ class PrometheusApp {
     init() {
         // Initialize mobile menu
         this.mobileMenuOpen = false;
+
+        // Navbar logo switching state
+        this.mobileBreakpoint = 768;
+        this.navbarHideThreshold = 200;
+        this.faviconSwitchOffset = 30;
+        this.faviconSwitchThreshold = this.navbarHideThreshold - this.faviconSwitchOffset;
+        this.hasPassedFirstNavbarHide = window.scrollY > this.navbarHideThreshold;
 
         // Initialize scroll position and direction
         this.lastScrollY = window.scrollY;
@@ -104,6 +124,8 @@ class PrometheusApp {
         this.syncLangDropdown(savedLang);
 
         this.updateActiveNavLink();
+        this.updateNavbarPreHideShrink(window.scrollY);
+        this.updateNavbarLogo();
     }
 
     syncLangDropdown(lang) {
@@ -127,7 +149,12 @@ class PrometheusApp {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
+                const href = anchor.getAttribute('href');
+                const target = href === '#services'
+                    ? document.getElementById('services-heading') || document.querySelector(href)
+                    : href === '#contact'
+                        ? document.getElementById('contact-heading') || document.querySelector(href)
+                        : document.querySelector(href);
                 if (target) {
                     this.smoothScrollTo(target);
                 }
@@ -136,6 +163,12 @@ class PrometheusApp {
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => this.handleScroll());
+
+        // Update logo when crossing responsive breakpoint
+        window.addEventListener('resize', () => {
+            this.updateNavbarPreHideShrink(window.scrollY);
+            this.updateNavbarLogo();
+        });
 
         // Navbar appear when mouse moves to top of viewport
         document.addEventListener('mousemove', (e) => this.handleNavbarZone(e));
@@ -287,6 +320,12 @@ class PrometheusApp {
         const navbar = document.getElementById('navbar');
         const currentScrollY = window.scrollY;
 
+        if (currentScrollY > this.navbarHideThreshold) {
+            this.hasPassedFirstNavbarHide = true;
+        } else if (currentScrollY <= 10) {
+            this.hasPassedFirstNavbarHide = false;
+        }
+
         // Navbar background on scroll
         if (currentScrollY > 100) {
             navbar.classList.add('scrolled');
@@ -296,8 +335,32 @@ class PrometheusApp {
 
         this.scrollingUp = currentScrollY < this.lastScrollY;
         this.lastScrollY = currentScrollY;
+        this.updateNavbarPreHideShrink(currentScrollY);
+        this.updateNavbarLogo();
         this.updateNavbarVisibility();
         this.updateActiveNavLink();
+    }
+
+    updateNavbarPreHideShrink(currentScrollY = window.scrollY) {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+
+        const isMobile = window.innerWidth <= this.mobileBreakpoint;
+        if (isMobile || this.hasPassedFirstNavbarHide) {
+            navbar.style.removeProperty('--nav-prehide-progress');
+            return;
+        }
+
+        const progress = Math.max(0, Math.min(1, currentScrollY / this.navbarHideThreshold));
+        navbar.style.setProperty('--nav-prehide-progress', progress.toFixed(3));
+    }
+
+    updateNavbarLogo() {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+
+        const useFavicon = window.innerWidth <= this.mobileBreakpoint || window.scrollY >= this.faviconSwitchThreshold;
+        navbar.classList.toggle('favicon-mode', useFavicon);
     }
 
     handleNavbarZone(e) {
@@ -345,7 +408,12 @@ class PrometheusApp {
     }
 
     smoothScrollTo(target) {
-        const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+        if (target.id === 'home') {
+            this.hasPassedFirstNavbarHide = false;
+            this.updateNavbarLogo();
+        }
+
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - this.scrollOffset; // Account for fixed navbar
 
         window.scrollTo({
             top: offsetTop,
@@ -460,9 +528,10 @@ class PrometheusApp {
 
 // Utility functions
 function scrollToSection(sectionId) {
+    const scrollOffset = 100;
     const section = document.getElementById(sectionId);
     if (section) {
-        const offsetTop = section.offsetTop - 70;
+        const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - scrollOffset;
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -620,27 +689,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add floating animation to energy rings
-document.addEventListener('DOMContentLoaded', () => {
-    const energyRings = document.querySelectorAll('.energy-ring');
-
-    energyRings.forEach((ring, index) => {
-        ring.style.animation = `rotate ${8 + index * 2}s linear infinite, float ${3 + index}s ease-in-out infinite`;
-    });
-
-    // Add floating keyframes
-    const floatKeyframes = `
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-        }
-    `;
-
-    const floatStyle = document.createElement('style');
-    floatStyle.textContent = floatKeyframes;
-    document.head.appendChild(floatStyle);
-});
-
 // Add magnetic effect to buttons
 document.addEventListener('DOMContentLoaded', () => {
     const magneticElements = document.querySelectorAll('.btn, .service-card, .contact-item');
@@ -657,6 +705,15 @@ document.addEventListener('DOMContentLoaded', () => {
         element.addEventListener('mouseleave', () => {
             element.style.transform = 'translate(0px, 0px)';
         });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const renergyIcon = document.querySelector('.hero-visual .renergy-icon');
+    if (!renergyIcon) return;
+
+    renergyIcon.addEventListener('click', () => {
+        window.location.reload();
     });
 });
 
